@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        
+
         <record id="assets_frontend_e3k" model="ir.asset">
             <field name="name">E3K bundle assets</field>
             <field name="bundle">web.assets_frontend</field>
@@ -10,18 +10,18 @@
         <template id="website_event.event_location" active="False"/>
 
 
-        <template id="index_sidebar_categories_inherit" inherit_id="website_event.index_sidebar_categories">
+<!--        <template id="index_sidebar_categories_inherit" inherit_id="website_event.index_sidebar_categories">-->
 
-            <xpath expr="//div[@id='o_wevent_index_sidebar']//div[@class='o_wevent_sidebar_block']//t[@t-foreach='types']//t"
-                   position="replace">
-                <t t-if="type['event_type_id']">
-                    <a t-att-href="keep('/event', type=type['event_type_id'][0])"
-                       class="bttn badge  badge-secondary o_wevent_badge mb-2 site-header_support">
-                        <t t-esc="type['event_type_id'][1]"/>
-                    </a>
-                </t>
-            </xpath>
-        </template>
+<!--            <xpath expr="//div[@id='o_wevent_index_sidebar']//div[@class='o_wevent_sidebar_block']//t[@t-foreach='types']//t"-->
+<!--                   position="replace">-->
+<!--                <t t-if="type['event_type_id']">-->
+<!--                    <a t-att-href="keep('/event', type=type['event_type_id'][0])"-->
+<!--                       class="bttn badge  badge-secondary o_wevent_badge mb-2 site-header_support">-->
+<!--                        <t t-esc="type['event_type_id'][1]"/>-->
+<!--                    </a>-->
+<!--                </t>-->
+<!--            </xpath>-->
+<!--        </template>-->
 
         <template id="opt_events_list_categories_inherit" inherit_id="website_event.opt_events_list_categories">
             <xpath expr="//a[@t-if='event.event_type_id']"
