@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <template id="assets_frontend" inherit_id="website_slides.assets_frontend">
+            <xpath expr="//link[last()]" position="after">
+                <link rel="stylesheet" type="text/scss" href="/e3k_custom_event/static/src/scss/website_events.scss"
+                      t-ignore="true"/>
+            </xpath>
+        </template>
+
+        <template id="website_event.event_location" active="False"/>
+
+
+        <template id="index_sidebar_categories_inherit" inherit_id="website_event.index_sidebar_categories">
+
+            <xpath expr="//div[@id='o_wevent_index_sidebar']//div[@class='o_wevent_sidebar_block']//t[@t-foreach='types']//t"
+                   position="replace">
+                <t t-if="type['event_type_id']">
+                    <a t-att-href="keep('/event', type=type['event_type_id'][0])"
+                       class="bttn badge  badge-secondary o_wevent_badge mb-2 site-header_support">
+                        <t t-esc="type['event_type_id'][1]"/>
+                    </a>
+                </t>
+            </xpath>
+        </template>
+
+        <template id="opt_events_list_categories_inherit" inherit_id="website_event.opt_events_list_categories">
+            <xpath expr="//a[@t-if='event.event_type_id']"
+                   position="replace">
+                <a t-if="event.event_type_id" t-attf-href="/event?type=#{event.event_type_id.id}"
+                   t-attf-class="bttn badge bg-secondary o_wevent_badge #{opt_events_list_columns and 'o_wevent_badge_event' or 'float-right'}"
+                   t-field="event.event_type_id"/>
+            </xpath>
+        </template>
+
+        <template id="ticket_inherit" inherit_id="website_event.ticket">
+            <xpath expr="//div[@class='col-lg-4 pt-3 pt-lg-0 pl-2 pl-lg-0']" position="replace">
+                <div class="col-lg-4 pt-3 pt-lg-0 pl-2 pl-lg-0">
+                    <button type="submit" class="btn bttn btn-primary o_wait_lazy_js btn-block a-submit"
+                            t-attf-id="#{event.id}">Register
+                    </button>
+                </div>
+            </xpath>
+
+        </template>
+
+    </data>
+</odoo>
