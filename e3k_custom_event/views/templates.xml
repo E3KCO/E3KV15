@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <template id="assets_frontend" inherit_id="website_slides.assets_frontend">
+        <template id="assets_frontend" inherit_id="website.assets_frontend">
             <xpath expr="//link[last()]" position="after">
                 <link rel="stylesheet" type="text/scss" href="/e3k_custom_event/static/src/scss/website_events.scss"
                       t-ignore="true"/>
